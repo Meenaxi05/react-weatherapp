@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 
 function TemperatureDetails({data}) {
   return (
@@ -15,5 +15,23 @@ function TemperatureDetails({data}) {
     </>
   )
 }
+
+TemperatureDetails.propTypes= {
+  data:PropTypes.shape({
+    location:PropTypes.shape({
+      country:PropTypes.string,
+      name:PropTypes.string,
+    }),
+    current:PropTypes.shape({
+      temp_c:PropTypes.number,
+      condition:PropTypes.shape({
+        icon:PropTypes.string,
+        text:PropTypes.string,
+      }),
+    }),
+  }),
+}
+
+
 
 export default TemperatureDetails

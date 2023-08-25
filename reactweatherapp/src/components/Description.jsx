@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 
 import{FaArrowDown , FaArrowUp, FaWind} from 'react-icons/fa'
 import {MdOutlineWaterDrop} from 'react-icons/md'
@@ -18,7 +18,7 @@ function Description({data}) {
                 <FaArrowUp/>
                 <small className='capitalize'>max</small>
             </div>
-            <h2 className='text-center'>{data.forecast.forecastday[0].day.maxtemp_c.toFixed()}°C</h2>
+            <h2 className='text-center'>{data.forecast.forecastday  [0].day.maxtemp_c.toFixed()}°C</h2>
         </div>
         <div className="flex flex-col item-center justify-between bg-section-overlay p-4 rounded-md">
         <div className="w-full flex flex-row items-center justify-center gap-[5px] mb-3">
@@ -37,5 +37,35 @@ function Description({data}) {
     </div>
   )
 }
+
+Description.propTypes ={
+data:PropTypes.shape({
+    forecast:PropTypes.shape({
+        forecastday :PropTypes.arrayOf(
+            PropTypes.shape({
+                day:PropTypes.shape({
+                        mintemp_c:PropTypes.number,
+                        maxtemp_c:PropTypes.number,               
+                }),
+            })
+        ),
+    }),
+    current:PropTypes.shape({
+        wind_mph:PropTypes.number,
+        humidity:PropTypes.number,
+    }),
+}),
+}
+
+// Description.PropTypes={
+//     data:PropTypes.shape({
+//         current:PropTypes.shape({
+//             condition:PropTypes.shape({
+//                 wind_mph:PropTypes.number,
+//                 humidity:PropTypes.number,
+//             })
+//             })
+//     })
+// }
 
 export default Description
