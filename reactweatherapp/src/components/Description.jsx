@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 
 import{FaArrowDown , FaArrowUp, FaWind} from 'react-icons/fa'
 import {MdOutlineWaterDrop} from 'react-icons/md'
+import { WeatherContext } from './WeatherContext';
 
-function Description({data}) {
+function Description() {
+    const {data} = useContext(WeatherContext)
+
   return (
     <div className='section_description grid grid-cols-2 gap-10'>
         <div className="flex flex-col item-center justify-between bg-section-overlay p-4 rounded-md">
@@ -56,16 +60,5 @@ data:PropTypes.shape({
     }),
 }),
 }
-
-// Description.PropTypes={
-//     data:PropTypes.shape({
-//         current:PropTypes.shape({
-//             condition:PropTypes.shape({
-//                 wind_mph:PropTypes.number,
-//                 humidity:PropTypes.number,
-//             })
-//             })
-//     })
-// }
 
 export default Description

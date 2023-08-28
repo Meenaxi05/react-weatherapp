@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { WeatherContext } from './WeatherContext';
 
-function TemperatureDetails({data}) {
+function TemperatureDetails() {
+  const {data} = useContext(WeatherContext)
   return (
     <>
           <div className=" w-full p-1 rounded-md text-white font-medium flex items-center justify-around bg-section-overlay">
@@ -11,6 +14,7 @@ function TemperatureDetails({data}) {
         </div>
 
           <h1 className='text-6xl'>{data.current.temp_c.toFixed()}°C</h1>
+
       </div>
     </>
   )
