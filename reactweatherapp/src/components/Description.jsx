@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useContext } from 'react';
 
 import{FaArrowDown , FaArrowUp, FaWind} from 'react-icons/fa'
@@ -42,23 +42,23 @@ function Description() {
   )
 }
 
-Description.propTypes ={
-data:PropTypes.shape({
-    forecast:PropTypes.shape({
-        forecastday :PropTypes.arrayOf(
-            PropTypes.shape({
-                day:PropTypes.shape({
-                        mintemp_c:PropTypes.number,
-                        maxtemp_c:PropTypes.number,               
-                }),
-            })
-        ),
-    }),
-    current:PropTypes.shape({
-        wind_mph:PropTypes.number,
-        humidity:PropTypes.number,
-    }),
-}),
-}
+// Description.propTypes ={
+// data:PropTypes.shape({
+//     forecast:PropTypes.shape({
+//         forecastday :PropTypes.arrayOf(
+//             PropTypes.shape({
+//                 day:PropTypes.shape({
+//                         mintemp_c:PropTypes.number,
+//                         maxtemp_c:PropTypes.number,               
+//                 }),
+//             })
+//         ),
+//     }),
+//     current:PropTypes.shape({
+//         wind_mph:PropTypes.number,
+//         humidity:PropTypes.number,
+//     }),
+// }),
+// }
 
 export default Description
